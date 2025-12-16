@@ -4,3 +4,9 @@ node_modules/
 dist/
 .env
 .firebase/
+
+# Keep config/secrets out of the repo
+.env.*
+firebaseConfig.js
+config.js
+secrets.js
