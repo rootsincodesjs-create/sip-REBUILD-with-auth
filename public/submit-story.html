@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Submit Your Story</title>
+        <link rel="stylesheet" href="./css/style.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="submit-page">
+        <header class="site-header">
+            <h1>Submit Your Story 💕</h1>
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About Me</a>
+                <a href="./map.html">Map</a>
+                <a href="./timeline.html">Timeline</a>
+                <a href="./chat.html">Chat</a>
+                <a href="./submit-story.html">Submit</a>
+                <a href="./login.html">Login</a>
+            </nav>
+        </header>
+
+            <main class="container">
+                <form class="card" id="story-form">
+        
+                    <!-- name is fine as single-line input -->
+                    <label for="name">📛 Your Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name 💌…" required/>
+
+                    <!-- background = paragraph -->
+                    <label for="background">🌱 Background</label>
+                    <textarea id="background" name="background" rows="4" placeholder="Tell us more about yourself..." required></textarea>
+
+                    <!-- STEM field input -->
+                    <label for="stemField">🧠 STEM Field</label>
+                    <textarea id="stemField" name="stemField" type="text" placeholder="Tell us about your field/major">
+
+                    <!-- accomplishments = paragraph -->
+                    <label for="accomplishments">🥇 Accomplishments</label>
+                    <textarea id="accomplishments" name="accomplishments" rows="4" placeholder="What have you accomplished as a woman of color in STEM?"></textarea>
+
+                    <!-- why you matter = already textarea -->
+                    <label for="y-u-matter">🫶 Why You Matter</label>
+                    <textarea id="y-u-matter" name="y-u-matter" rows="4" placeholder="How has being a woman of color in STEM shaped you…"></textarea>
+
+                    <!-- city = short input -->
+                    <label for="city">📍 Your City</label>
+                    <input id="city" name="city" type="text" placeholder="Search your city…" autocomplete="off" required/>
+
+                    <button type="submit" class="submit-btn">💕 Submit Your Story</button>
+                </form>
+            </main>
+        <script type="module" src="./js/submit-story.js"></script>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "SIP \u2014 Women of Color in STEM",
+  "short_name": "SIP",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff7fb",
+  "theme_color": "#FF85B3",
+  "icons": []
+}

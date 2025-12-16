@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Quicksand + Boxicons -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+
+    <body class="login-page">
+    <main>
+        <div class="login-container">
+            <section class="login-card">
+                <h2 class="login-title">Login</h2>
+
+                <form id="login-form">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="email" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+
+                <button type="submit" id="login-btn">Login</button>
+
+                <button type="button" id="reset-password">Forgot password?</button>
+                <a class="login-link" href="./signup.html">Don't have an account? Create one</a>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- IMPORTANT: load as a module -->
+    <script type="module" src="./js/login.js"></script>
+    </body>
+</html>
