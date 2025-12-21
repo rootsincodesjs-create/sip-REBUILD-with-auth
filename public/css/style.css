@@ -4,7 +4,7 @@
    02) 🧱 Base / Layout
    03) 🧭 Header / Nav
    04) 🗓️ Timeline
-   05) 💗 Heart Frame
+   05) 💗 Home page containers
    06) 📝 Generic Forms (site-wide, NOT login page)
    07) 🗺️ Map
    08) 💬 Chat
@@ -21,15 +21,8 @@
   --text-color: #ffffff;
   --background: #fff0f5;
   --chat-bubble:#f8c8dc;
-  --star-color: #ff69b4;
   --border-color:#ffb6c1;
 
-  /* CodingStella palette hooks (kept, mapped to pinks) */
-  --primary-color: #c6c3c3;
-  --second-color: #ffffff;
-  --black-color: #000000;
-
-  --radius-lg: 20px;
   --radius-xl: 24px;
   --shadow-card: 0 12px 32px rgba(255,182,193,.28);
   --shadow-btn: 0 6px 16px rgba(173,100,118,.28);
@@ -39,18 +32,7 @@
   --pink-outer: #ffeaf2;      /* outer card */
   --pink-inner: #ffe1ec;      /* inner panel */
   --pink-border: rgba(219,62,117,.22);
-  --shadow-strong: 0 26px 60px rgba(160, 24, 72, .28);
   --heading-color: #6b2948;
-
-  /* Login size knobs (edit these) */
-  --login-card-w: 360px;      /* card width */
-  --login-gap: 12px;          /* space between fields */
-  --login-input-h: 44px;      /* input height */
-  --login-input-radius: 14px; /* input roundness */
-  --login-btn-w: 220px;       /* button width (use 100% for full width) */
-  --login-btn-h: 44px;        /* button height */
-  --login-btn-radius: 999px;  /* button roundness */
-  --login-font: 0.98rem;      /* input text size */
 }
 
 
@@ -58,7 +40,6 @@
 html, body {
   font-family: "Quicksand", sans-serif;
   background-color: var(--background);
-  color: var(--wine-berry);
   margin: 0;
   padding: 2rem; /* move to page containers if you need full-bleed sections */
 }
@@ -71,7 +52,9 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  gap: 2rem;
 }
+
 nav {
   background-color: var(--wine-berry);
   padding: 1rem;
@@ -80,15 +63,26 @@ nav {
   justify-content: flex-end;
   gap: 1rem;
   align-items: center;
+  margin-right: 0;
 }
+
 nav a {
   color: var(--text-color);
-  margin-right: 1rem;
+  margin-right: .5rem;
   text-decoration: none;
   font-weight: bold;
 }
-nav a:hover { text-decoration: underline; color: var(--tapestry); }
-h1 { color: var(--tapestry); font-size: 2.5rem; margin: 0; }
+
+nav a:hover { 
+  text-decoration: underline; 
+  color: var(--tapestry); 
+}
+
+h1 { 
+  color: var(--tapestry); 
+  font-size: 2rem; 
+  margin: 0; 
+}
 
 
 /* ========== 04) 🗓️ TIMELINE ========== */
@@ -147,19 +141,48 @@ h1 { color: var(--tapestry); font-size: 2.5rem; margin: 0; }
 .works-cited li { margin-bottom:.5rem; }
 
 
-/* ========== 05) 💗 HEART FRAME (optional wrapper) ========== */
-.heart-frame {
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 360'%3E%3Cpath fill='%23FFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='5' d='M430 180s-27-4.2-22.3-32.6a52.2 52.2 0 0 0-57.6-66.2l-77.5 11C244.1 97 240 70 240 70s-4.2 27-32.6 22.3l-77.6-11c-37-5.3-68 29.2-57.5 66C77 175.9 50 180 50 180s27 4.2 22.3 32.6a52.2 52.2 0 0 0 57.5 66.1l77.5-11C235.8 263 240 290 240 290s4.1-27 32.6-22.3l77.5 11a52.2 52.2 0 0 0 57.6-66C403 184.1 430 180 430 180Z'/%3E%3C/svg%3E")
-    no-repeat center center / contain;
-  padding: 8rem 2rem;
-  margin: auto;
-  max-width: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ========== 05) 💗 Home Page ========== */
+.intro-section{
+  background-color: #f6a7c3;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 85vw;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 75vh;
+  max-width: 1200px;
+  max-height: 800px;
 }
 
+.profile-container{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.profile-image img{
+  max-width: 200px;  /* sets the maximum width */
+  height: auto;      /* maintains aspect ratio */
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.subtitle{
+  font-size: 0.85rem;    /* makes the text smaller */
+  font-weight: normal;   /* ensures text is not bold */
+  color: #555555;        /* optional: softer color for subtitle */
+  margin-top: 0.5rem; 
+}
+
+.profile-paragraph{
+  font-weight: normal;
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.intro-section-2{
+
+}
+  
 
 /* ========== 06) 📝 GENERIC FORMS (site-wide EXCEPT login page) ========== */
 body:not(.login-page) form {
@@ -307,21 +330,81 @@ body:not(.login-page) form button[type="submit"]:hover { background-color: #f96c
   height: 500px; overflow-y: auto; padding: 1rem 2rem; background-color: var(--tapestry);
   border-radius: 20px; margin: 1rem auto; width: 90%; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
+
 /* Cards / generic UI */
-.card-pink{ background:#fff; border:2px solid var(--border-color); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); padding: 1.5rem; }
-.input-pink{ width: 100%; padding: 12px 14px; background:#fff; border: 2px solid var(--border-color); border-radius: 14px; box-shadow: inset 0 2px 0 rgba(255,182,193,.35); font-size: 1rem; }
-.input-pink:focus{ outline: none; box-shadow: var(--focus-ring), inset 0 2px 0 rgba(255,182,193,.35); }
-.btn{ border:0; border-radius:999px; padding:.75rem 1.25rem; font-weight:800; cursor:pointer; transition: transform .05s, box-shadow .2s; }
-.btn-primary{ background:var(--tapestry); color:var(--text-color); border:2px solid var(--wine-berry); box-shadow:var(--shadow-btn); }
-.btn-primary:hover{ filter:brightness(1.05); }
-.btn:active{ transform: translateY(1px); }
-.btn[disabled]{ opacity:.6; cursor:not-allowed; }
-.form-container button, .form-container input[type="submit"], .form-container input[type="button"]{
-  border-radius:999px; font-weight:800; background:var(--tapestry); color:var(--text-color);
-  border:2px solid var(--wine-berry); box-shadow:var(--shadow-btn); padding:.75rem 1.25rem;
+.card-pink{ 
+  background:#fff; 
+  border:2px solid var(--border-color); 
+  border-radius: var(--radius-xl); 
+  box-shadow: var(--shadow-card); 
+  padding: 1.5rem; 
 }
-.inline-actions{ display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; }
-.inline-actions .status{ color:#9c5d7d; font-size:.9rem; }
+
+.input-pink{ 
+  width: 100%; 
+  padding: 12px 14px; 
+  background:#fff; 
+  border: 2px solid var(--border-color); 
+  border-radius: 14px; 
+  box-shadow: inset 0 2px 0 rgba(255,182,193,.35); 
+  font-size: 1rem; 
+}
+
+.input-pink:focus{ 
+  outline: none; 
+  box-shadow: var(--focus-ring), 
+  inset 0 2px 0 rgba(255,182,193,.35); 
+}
+
+.btn{ 
+  border:0; 
+  border-radius:999px; 
+  padding:.75rem 1.25rem; 
+  font-weight:800; 
+  cursor:pointer; 
+  transition: transform .05s, box-shadow .2s; 
+}
+
+.btn-primary{ 
+  background:var(--tapestry); 
+  color:var(--text-color); 
+  border:2px solid var(--wine-berry); 
+  box-shadow:var(--shadow-btn); 
+}
+
+.btn-primary:hover{ 
+  filter:brightness(1.05); 
+}
+
+.btn:active{ 
+  transform: translateY(1px); 
+}
+
+.btn[disabled]{ 
+  opacity:.6; 
+  cursor:not-allowed; 
+}
+
+.form-container button, .form-container input[type="submit"], .form-container input[type="button"]{
+  border-radius:999px; 
+  font-weight:800; 
+  background:var(--tapestry); 
+  color:var(--text-color);
+  border:2px solid var(--wine-berry); 
+  box-shadow:var(--shadow-btn); 
+  padding:.75rem 1.25rem;
+}
+
+.inline-actions{ display:flex; 
+  gap:.5rem; 
+  align-items:center; 
+  flex-wrap:wrap; 
+}
+
+.inline-actions .status{ 
+  color:#9c5d7d; 
+  font-size:.9rem; 
+}
 
 
 /* ========== 10) 🔐 AUTH (Login / Signup) – compact container (legacy) ========== */
@@ -376,8 +459,18 @@ body:not(.login-page) form button[type="submit"]:hover { background-color: #f96c
 /* ========== 12) 🔐 LOGIN PAGE — centering + form (scoped: .login-page) ========== */
 
 /* Remove global padding on login page */
-html:has(body.login-page) { padding: 0 !important; }
-body.login-page { padding: 0 !important; margin: 0; }
+html:has(body.login-page) { 
+  padding: 0 !important; 
+}
+
+body.login-page { 
+  padding: 0 !important; 
+  margin: 0; 
+}
+
+header {
+  margin-bottom: 2rem;
+}
 
 /* Login: stack fields vertically */
 .login-page main {
