@@ -45,7 +45,6 @@ html, body {
 }
 .left-align { display: block; text-align: left; }
 
-
 /* ========== 03) 🧭 HEADER / NAV ========== */
 .site-header {
   display: flex;
@@ -53,6 +52,7 @@ html, body {
   align-items: center;
   padding: 1rem 2rem;
   gap: 2rem;
+  margin-top: 0.1rem;
 }
 
 nav {
@@ -82,6 +82,15 @@ h1 {
   color: var(--tapestry); 
   font-size: 2rem; 
   margin: 0; 
+}
+
+.toc {
+  display: flex;
+  justify-content: center; /* centers the flex items horizontally */
+  gap: 0.5rem;             /* space between links */
+  flex-wrap: wrap;         /* wrap to next line if too long */
+  margin: 1rem 0;
+  font-size: 1rem;
 }
 
 
@@ -143,12 +152,12 @@ h1 {
 
 /* ========== 05) 💗 Home Page ========== */
 .intro-section{
-  background-color: #f6a7c3;
+  background-color: var(--pink-inner);
   border-radius: 20px;
   padding: 2rem;
   width: 85vw;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  height: 75vh;
+  height: 70vh;
   max-width: 1200px;
   max-height: 800px;
 }
