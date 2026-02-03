@@ -330,12 +330,12 @@ body:not(.login-page) form button[type="submit"]:hover
 
   /* match your global body padding: 2rem left + 2rem right */
   width: min(1200px, calc(100vw - 4rem));
-  margin: 2rem auto;                 /* centers the whole box */
+  margin: 1rem;                 /* centers the whole box */
 }
 
 #map
 {
-   display: block;
+  display: block;
   width: min(1200px, calc(100vw - 4rem));  /* lines up with your body 2rem padding */
   height: clamp(560px, 78svh, 900px);      /* bigger, responsive */
   margin: 12px auto 2rem;                  /* centers it under the nav */
@@ -363,6 +363,7 @@ body:not(.login-page) form button[type="submit"]:hover
   padding-bottom: 120px;
   box-sizing: border-box;
 }
+
 .chat-feed
 {
   width:100%;
