@@ -1,0 +1,893 @@
+/* =====================================================
+   TABLE OF CONTENTS
+   01) 🎨 Foundations / Tokens
+   02) 🧱 Base / Layout
+   03) 🧭 Header / Nav
+   04) 🗓️ Timeline
+   05) 💗 Home page containers
+   06) 📝 Generic Forms (site-wide, NOT login page)
+   07) 🗺️ Map
+   08) 💬 Chat
+   09) 🧰 Generic UI Pieces (cards/inputs/buttons)
+   10) 🔐 Auth (Login/Signup) – compact container (legacy card)
+   12) 🔐 Login Page (scoped: .login-page) – centering, form, inputs, links
+   ===================================================== */
+
+
+/* ========== 01) 🎨 FOUNDATIONS / TOKENS ========== */
+:root
+{
+  --wine-berry: #61203E;
+  --tapestry:   #AD6476;
+  --text-color: #ffffff;
+  --background: #fff0f5;
+  --chat-bubble:#f8c8dc;
+  --border-color:#ffb6c1;
+
+  --radius-xl: 24px;
+  --shadow-card: 0 12px 32px rgba(255,182,193,.28);
+  --shadow-btn: 0 6px 16px rgba(173,100,118,.28);
+  --focus-ring: 0 0 0 3px rgba(255,182,193,.5);
+
+  /* Auth / Glass palette */
+  --pink-outer: #ffeaf2;      /* outer card */
+  --pink-inner: #ffe1ec;      /* inner panel */
+  --pink-border: rgba(219,62,117,.22);
+  --heading-color: #6b2948;
+}
+
+
+/* ========== 02) 🧱 BASE / LAYOUT ========== */
+html, body 
+{
+  font-family: "Quicksand", sans-serif;
+  background-color: var(--background);
+  margin: 0;
+  padding: 2rem; /* move to page containers if you need full-bleed sections */
+}
+.left-align 
+{ 
+  display: block; 
+  text-align: left; 
+}
+
+/* ========== 03) 🧭 HEADER / NAV ========== */
+.site-header 
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 2rem;
+  margin-top: 0.1rem;
+}
+
+nav 
+{
+  background-color: var(--wine-berry);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+  margin-right: 0;
+}
+
+nav a 
+{
+  color: var(--text-color);
+  margin-right: .5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover 
+{ 
+  text-decoration: underline; 
+  color: var(--tapestry); 
+}
+
+h1 
+{ 
+  color: var(--tapestry); 
+  font-size: 2rem; 
+  margin: 0; 
+}
+
+.toc 
+{
+  display: flex;
+  justify-content: center; /* centers the flex items horizontally */
+  gap: 0.5rem;             /* space between links */
+  flex-wrap: wrap;         /* wrap to next line if too long */
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+
+/* ========== 04) 🗓️ TIMELINE ========== */
+.timeline 
+{
+  display: flex;
+  overflow: auto;
+  scroll-behavior: smooth;
+  gap: 40px;
+  padding: 40px 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.timeline-entry 
+{
+  background-color: var(--tapestry);
+  border: 2px solid var(--wine-berry);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(97, 32, 62, 0.2);
+  color: var(--text-color);
+  display: flex;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 0 0 auto;
+  width: 320px;
+  scroll-snap-align: start;
+}
+
+.timeline-entry .content
+{
+  background-color:#61203E;
+  border:2px solid #db3e75;
+  border-radius:20px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  height:100%;
+}
+
+.timeline-entry img
+{
+  display:block;
+  margin:0 auto 10px;
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:10px;
+}
+
+.timeline-entry h3 
+{ 
+  font-size: 1.8rem; 
+  margin-bottom: .5rem; 
+  color: var(--text-color); 
+}
+
+.timeline-entry p  
+{ 
+  font-size: 1.1rem; 
+  line-height: 1.5; 
+  color: var(--text-color); 
+}
+
+#timeline-container 
+{ 
+  padding: 2rem; 
+}
+
+@media (max-width: 768px) 
+{
+  .timeline-entry 
+  { 
+    width: 100%; 
+    padding: 20px 20px 20px 40px; 
+    text-align: center; 
+  }
+}
+
+.to-be-continued 
+{ 
+  text-align:center; 
+  font-style:italic; 
+  margin-top:3rem; 
+  color:var(--tapestry); 
+  font-size:1.2rem; 
+}
+
+.works-cited 
+{ 
+  font-size:.95rem; 
+  color:var(--tapestry); 
+  margin-top:4rem; 
+  padding-left:1.5rem; 
+  line-height:1.5; 
+}
+
+.works-cited li 
+{ 
+  margin-bottom:.5rem; 
+}
+
+
+/* ========== 05) 💗 Home Page ========== */
+.intro-section
+{
+  background-color: var(--pink-inner);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 85vw;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 70vh;
+  max-width: 1200px;
+  max-height: 800px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.profile-container
+{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.profile-image img
+{
+  max-width: 200px;  /* sets the maximum width */
+  height: auto;      /* maintains aspect ratio */
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.subtitle
+{
+  font-size: 0.85rem;    /* makes the text smaller */
+  font-weight: normal;   /* ensures text is not bold */
+  color: #555555;        /* optional: softer color for subtitle */
+  margin-top: 0.5rem; 
+}
+
+.profile-paragraph
+{
+  font-weight: normal;
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+/* ========== 06) 📝 GENERIC FORMS (site-wide EXCEPT login page) ========== */
+body:not(.login-page) form 
+{
+  background-color: #ffeaf1d0;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 0 20px #ffc0cb80;
+}
+
+body:not(.login-page) form label 
+{
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+body:not(.login-page) form input[type="text"],
+body:not(.login-page) form input[type="email"],
+body:not(.login-page) form input[type="password"],
+body:not(.login-page) form textarea,
+body:not(.login-page) form select 
+{
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 2px solid #ffb6c1;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fff0f5;
+}
+
+body:not(.login-page) form textarea 
+{ 
+  resize: vertical; min-height: 100px; 
+}
+
+body:not(.login-page) form button[type="submit"] 
+{
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #ff85b3;
+  border: none;
+  color: white;
+  border-radius: 900px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px #ffa5c9a4;
+}
+
+body:not(.login-page) form button[type="submit"]:hover 
+{ 
+  background-color: #f96ca4; 
+}
+
+/* Submit Story Form */
+#story-form 
+{
+  max-width: 640px;
+  margin: 2rem auto;
+}
+
+/* ========== 07) 🗺️ MAP ========== */
+.map-frame
+{
+  border: 2px solid var(--wine-berry);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+
+  /* match your global body padding: 2rem left + 2rem right */
+  width: min(1200px, calc(100vw - 4rem));
+  margin: 1rem;                 /* centers the whole box */
+}
+
+#map
+{
+  display: block;
+  width: min(1200px, calc(100vw - 4rem));  /* lines up with your body 2rem padding */
+  height: clamp(560px, 78svh, 900px);      /* bigger, responsive */
+  margin: 12px auto 2rem;                  /* centers it under the nav */
+  border: 2px solid var(--wine-berry);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+
+.leaflet-container 
+{ 
+  background: #cde7f5; 
+}
+
+/* ========== 08) 💬 CHAT ========== */
+.chat-wrapper 
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+.chat-feed
+{
+  width:100%;
+  max-width:1100px;
+  height:500px;
+  padding:2rem;
+  margin:2rem 0;
+  overflow-y:auto;
+  border-radius:2rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.98)),
+    radial-gradient(400px 200px at 10% -10%, rgba(255,230,240,.45), transparent 60%),
+    radial-gradient(400px 200px at 90% -10%, rgba(255,230,240,.45), transparent 60%);
+  border:2px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.chat-message 
+{ 
+  margin-bottom: 2rem; 
+  display: flex; 
+  align-items: flex-start; 
+  gap: 10px; 
+  animation: chat-pop .18s ease-out; 
+}
+
+@keyframes chat-pop
+{ 
+  from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:translateY(0)} 
+}
+
+  .chat-bubble
+  {
+  font-family:"Quicksand",sans-serif;
+  font-size:.95rem;
+  font-weight:500;
+  line-height:1.6;
+  position:relative;
+  padding:16px 20px;
+  max-width:300px;
+  width:fit-content;
+  color:var(--wine-berry);
+  background:#fff;
+  border:2px solid #ffd1e0;
+  border-radius:20px;
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  filter: drop-shadow(0 0 4px rgba(255,182,193,.3));
+}
+
+.chat-bubble::after
+{
+  content:"";
+  position:absolute; left:30px; bottom:-6px;
+  width:22px; height:22px; background:#fff; border-radius:50%;
+  box-shadow:10px -10px 0 0 #fff, -10px -10px 0 0 #fff; z-index:-1;
+}
+
+.chat-message.me .chat-bubble
+{ 
+  background: linear-gradient(180deg, #ffe6ef, #ffd6e6); 
+  border-color:#f6a9c4; 
+}
+
+.chat-meta 
+{ 
+  display:flex; 
+  justify-content:space-between; 
+  font-size:.7rem; 
+  color:#a86b83; 
+  margin-bottom:10px; 
+  padding-bottom:5px; 
+  border-bottom:1px dashed #f3cce2; 
+}
+
+.chat-username 
+{ 
+  font-weight:bold; 
+  font-size:.75rem; 
+}
+
+.chat-time 
+{ 
+  font-style: italic; 
+  font-size:.7rem; 
+}
+
+.chat-text 
+{ 
+  font-size: 1rem; 
+  padding-top: 4px; 
+}
+
+.chat-form 
+{
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 1rem 2rem;
+  background-color: #ffeef7; 
+  display: flex; 
+  gap: 1rem; 
+  align-items: center;
+  border-top:1px solid #f5cbd7; 
+  box-shadow: 0 -6px 18px rgba(255,182,193,.18); 
+  z-index: 999;
+}
+
+.chat-form input[type="text"], .chat-form textarea
+{
+  border:2px solid var(--border-color); 
+  border-radius: 999px; 
+  background:#fff;
+  box-shadow: inset 0 2px 0 rgba(255,182,193,.35); 
+  padding: .6rem .9rem;
+}
+
+.chat-form button[type="submit"]
+{
+  border-radius: 999px; 
+  font-weight: 800; 
+  background: var(--tapestry); 
+  color: var(--text-color);
+  border:2px solid var(--wine-berry); 
+  box-shadow: var(--shadow-btn); 
+  padding: .6rem 1rem;
+}
+
+#messages 
+{
+  height: 500px; 
+  overflow-y: auto; 
+  padding: 1rem 2rem; 
+  background-color: var(--tapestry);
+  border-radius: 20px; 
+  margin: 1rem auto; 
+  width: 90%; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Cards / generic UI */
+.card-pink
+{ 
+  background:#fff; 
+  border:2px solid var(--border-color); 
+  border-radius: var(--radius-xl); 
+  box-shadow: var(--shadow-card); 
+  padding: 1.5rem; 
+}
+
+.input-pink
+{ 
+  width: 100%; 
+  padding: 12px 14px; 
+  background:#fff; 
+  border: 2px solid var(--border-color); 
+  border-radius: 14px; 
+  box-shadow: inset 0 2px 0 rgba(255,182,193,.35); 
+  font-size: 1rem; 
+}
+
+.input-pink:focus
+{ 
+  outline: none; 
+  box-shadow: var(--focus-ring), 
+  inset 0 2px 0 rgba(255,182,193,.35); 
+}
+
+.btn
+{ 
+  border:0; 
+  border-radius:999px; 
+  padding:.75rem 1.25rem; 
+  font-weight:800; 
+  cursor:pointer; 
+  transition: transform .05s, box-shadow .2s; 
+}
+
+.btn-primary
+{ 
+  background:var(--tapestry); 
+  color:var(--text-color); 
+  border:2px solid var(--wine-berry); 
+  box-shadow:var(--shadow-btn); 
+}
+
+.btn-primary:hover
+{ 
+  filter:brightness(1.05); 
+}
+
+.btn:active
+{ 
+  transform: translateY(1px); 
+}
+
+.btn[disabled]
+{ 
+  opacity:.6; 
+  cursor:not-allowed; 
+}
+
+.form-container button, 
+.form-container input[type="submit"], 
+.form-container input[type="button"]
+{
+  border-radius:999px; 
+  font-weight:800; 
+  background:var(--tapestry); 
+  color:var(--text-color);
+  border:2px solid var(--wine-berry); 
+  box-shadow:var(--shadow-btn); 
+  padding:.75rem 1.25rem;
+}
+
+.inline-actions
+{ 
+  display:flex; 
+  gap:.5rem; 
+  align-items:center; 
+  flex-wrap:wrap; 
+}
+
+.inline-actions .status
+{ 
+  color:#9c5d7d; 
+  font-size:.9rem; 
+}
+
+
+/* ========== 10) 🔐 AUTH (Login / Signup) – compact container (legacy) ========== */
+.auth-container
+{
+  min-height: calc(100vh - 140px);
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+}
+.auth-card
+{
+  width: min(360px, 92vw);
+  border-radius: 20px;
+  padding: 22px 22px 16px;
+  box-shadow: 0 16px 32px rgba(160,24,72,.20);
+  background: var(--pink-outer);
+  border: 1px solid var(--pink-border);
+}
+.auth-title
+{
+  text-align: center;
+  margin: 0 0 8px;
+  font-size: clamp(1.25rem, 1.05rem + .8vw, 1.6rem);
+  color: var(--heading-color);
+}
+.auth-inner
+{
+  max-width: 320px;
+  margin: 8px auto 0;
+  padding: 12px 12px 10px;
+  box-sizing: border-box;
+  background: var(--pink-inner);
+  border: 1px solid rgba(219,62,117,.16);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+}
+.auth-form label
+{ 
+  display:block; 
+  margin:4px 0 2px; 
+  font-weight:600; 
+  font-size:.95rem; 
+  color:var(--heading-color); 
+}
+
+.auth-input
+{
+  width:100%; 
+  height:34px; 
+  padding:8px 10px; 
+  font-size:.95rem;
+  border-radius:10px; 
+  border:2px solid #f6a7c3; 
+  background:#fff0f5; 
+  color:#3a3a3a; 
+  outline:none;
+  transition:box-shadow .15s, 
+  border-color .15s; 
+  margin-bottom:8px;
+}
+
+.auth-input:focus
+{ 
+  border-color:#db3e75; 
+  box-shadow:0 0 0 3px rgba(219,62,117,.16); 
+}
+
+.auth-btn
+{
+  width:220px; 
+  height:42px; 
+  display:block; 
+  margin:12px auto 0; 
+  border:0; 
+  border-radius:999px;
+  background:#ff85b3; 
+  color:#fff; 
+  font-weight:700; 
+  letter-spacing:.2px; 
+  box-shadow:0 6px 12px rgba(219,62,117,.20);
+  cursor:pointer; 
+  transition:filter .15s, 
+  transform .04s;
+}
+
+.auth-btn:hover
+{ 
+  filter:brightness(1.03); 
+}
+
+.auth-btn:active
+{ 
+  transform:translateY(1px); 
+}
+
+.auth-help
+{ 
+  width:100%; 
+  max-width:320px; 
+  margin:10px auto 0; 
+}
+
+.auth-help a
+{ 
+  color:#3b5fc6; 
+  text-decoration:underline; 
+}
+
+
+/* ========== 12) 🔐 LOGIN PAGE — centering + form (scoped: .login-page) ========== */
+
+/* Remove global padding on login page */
+html:has(body.login-page) 
+{ 
+  padding: 0 !important; 
+}
+
+body.login-page 
+{ 
+  padding: 0 !important; 
+  margin: 0; 
+}
+
+header 
+{
+  margin-bottom: 2rem;
+}
+
+/* Login: stack fields vertically */
+.login-page main 
+{
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.login-page #login-form
+{
+  display: grid;              /* one column, auto rows */
+  grid-template-columns: 1fr;
+  gap: 12px;                  /* space between items */
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.login-page label
+{
+  display: block;             /* label on its own line */
+}
+
+.login-page input,
+.login-page button
+{
+  display: block;             /* each on its own line */
+  width: 100%;                /* full width */
+}
+
+/* optional: make "Forgot password?" sit under the login button */
+.login-page #reset-password
+{
+  width: auto;
+  justify-self: start;
+}
+
+/* ===== Login page: container + card (scoped) ===== */
+.login-page main
+{
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.login-page .login-container
+{
+  /* centers vertically & horizontally */
+  display: grid;
+  place-items: center;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px); /* adjust if you have a fixed header */
+  width: 100%;
+}
+
+.login-page .login-card
+{
+  width: min(380px, 92vw);          /* container width */
+  background: #fff;                 /* plain, easy to restyle later */
+  border: 1px solid var(--pink-border);
+  margin: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  padding: 20px 18px;
+}
+
+.login-page .login-title
+{
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--wine-berry);
+}
+
+/* stack everything vertically with nice spacing */
+.login-page #login-form
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.login-page label
+{
+  display: block;
+  font-weight: 600;
+}
+
+/* Login inputs: larger + rounded (buttons untouched) */
+.login-page #login-form input[type="email"],
+.login-page #login-form input[type="password"]
+{
+  width: 90%;
+  height: 20px;                 /* bump size a little */
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid #f6a7c3;    /* or use var(--border-color) */
+  background: #fff0f5;
+  border-radius: 12px;          /* rounded like your text boxes */
+  box-shadow: inset 0 2px 0 rgba(255,182,193,.35);
+}
+
+.login-page #login-form input[type="email"]:focus,
+.login-page #login-form input[type="password"]:focus
+{
+  outline: none;
+  border-color: #db3e75;
+  box-shadow: 0 0 0 3px rgba(219,62,117,.16),
+              inset 0 2px 0 rgba(255,182,193,.35);
+}
+
+.login-page button
+{
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #ff85b3;
+  border: none;
+  color: white;
+  border-radius: 900px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px #ffa5c9a4;
+}
+
+/* keep “Forgot password?” as a small text-style button under Login */
+.login-page #reset-password 
+{
+  width: auto;
+  justify-self: start;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--tapestry);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-page #create-account 
+{
+  width: auto;
+  justify-self: start;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--tapestry);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-page .login-card > *:first-child 
+{ 
+  margin-top: 0; 
+}
+
+@media (min-height: 540px)
+{
+  body.login-page { overflow-y: hidden; }
+}
+
+.video-wrapper
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}

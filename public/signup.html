@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <title>Sign Up</title><link rel='stylesheet' href='./css/style.css'/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    
+    <body class="signup-page">
+        <main> 
+            <div class="login-container">
+                <section class="login-card">
+                    <h2 class="login-title">Sign Up</h2>
+
+                    <form id="signup-form">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" class="input-pink" placeholder="Enter your public Username <3" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_.]{3,30}">
+
+                        <label for="stem-field">🎓 STEM Field</label>
+                        <select id="stem-field" name="stemField" class="input-pink">
+                        <option value="" selected>Select your Field</option>
+                        <option>Computer Science</option>
+                        <option>Math</option>
+                        <option>Engineering</option>
+                        <option>Biology</option>
+                        <option>Chemistry</option>
+                        <option>Physics</option>
+                        <option>Other</option>
+                        </select>
+
+                        <label for="signup-email">Email</label>
+                        <input id="signup-email" name="email" type="email" class="input-pink" required>
+
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" name="password" type="password" class="input-pink" required>
+
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input id="signup-confirm" name="confirm" type="password" class="input-pink" required>
+
+                        <button id="signup-btn" class="btn-pink" type="submit">Sign Up</button>
+                        <a class="login-link" href="./login.html">Already have an account? Log in</a>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <script type="module" src="./js/signup.js"></script>
+    </body>
+</html>

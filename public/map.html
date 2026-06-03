@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIP • Map</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <h1>Map</h1>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About Me</a>
+        <a href="./map.html" aria-current="page">Map</a>
+        <a href="./timeline.html">Timeline</a>
+        <a href="./chat.html">Chat</a>
+        <a href="./submit-story.html">Submit Your Story</a>
+        <a href="./login.html">Login</a>
+      </nav>
+    </header>
+
+    <main class="container"> <!-- this needs to be edites in css (make another section in the css to fit the map to size) -->
+      <div id="map"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script type="module" src="./js/map.js"></script>
+  </body>
+</html>

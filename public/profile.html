@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <title>Profile</title><link rel='stylesheet' href='./css/style.css'/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+        #app[hidden]{display:none}
+        .card{
+            max-width:640px;
+            margin:auto;
+            padding:1.25rem;
+            border:1px solid #eee;
+            border-radius:12px;
+            background:var(--card-bg)}
+            </style>
+        </head>
+        
+        <body>
+        <header class='site-header'><h1>Profile</h1>
+            <nav>
+                <a href='./index.html'>Home</a>
+                <a href='./about.html'>About</a>
+                <a href='./map.html'>Map</a>
+                <a href='./timeline.html'>Timeline</a>
+                <a href='./chat.html'>Chat</a>
+                <a href='./submit-story.html'>Submit Your Story</a>
+                <a href='./login.html'>Login</a>
+            </nav>
+        </header><div id='gate' class='container'>Loading your profile…</div>
+        <div id='app' class='container' hidden><div class='card'>
+            <h1>Welcome, <span id='who'>friend</span> ✨</h1>
+            <p>Email: <span id='user-email'>—</span></p>
+                <div class='row'>
+                    <a class="btn" href="./chat.html">Go to Chat</a>
+                    <button id='logout' class='btn outline'>Log out</button>
+                </div>
+            </div>
+        </div>
+        <script type='module' src='./js/profile.js'></script>
+    </body>
+</html>
