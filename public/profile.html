@@ -30,15 +30,46 @@
                 <a href='./submit-story.html'>Submit Your Story</a>
                 <a href='./login.html'>Login</a>
             </nav>
-        </header><div id='gate' class='container'>Loading your profile…</div>
-        <div id='app' class='container' hidden><div class='card'>
-            <h1>Welcome, <span id='who'>friend</span> ✨</h1>
-            <p>Email: <span id='user-email'>—</span></p>
-                <div class='row'>
-                    <a class="btn" href="./chat.html">Go to Chat</a>
-                    <button id='logout' class='btn outline'>Log out</button>
-                </div>
+        </header>
+        
+        <div id='gate' class='profile-loading'>Loading your profile…</div>
+
+        <div id='app' class='profile-page' hidden>
+        <div class='card' style="max-width:640px; margin:auto; padding:1.5rem;">
+            <h1>Welcome, <span id="who">friend</span> ✨</h1>
+            <p>Email: <span id="user-email">—</span></p>
+
+            <hr style="margin:1.5rem 0; border-color:var(--border-color);">
+
+            <h3>✏️ Edit your profile</h3>
+
+            <label for="display-name" style="display:block;margin-top:1rem;font-weight:bold;">Display Name</label>
+            <input id="display-name" type="text" class="input-pink" placeholder="Your public name">
+
+            <label for="bio" style="display:block;margin-top:1rem;font-weight:bold;">Bio</label>
+            <textarea id="bio" rows="3" class="input-pink" placeholder="Tell the community about yourself..."></textarea>
+
+            <label for="profile-theme" style="display:block;margin-top:1rem;font-weight:bold;">🎨 Colour Theme</label>
+            <select id="profile-theme" class="input-pink">
+            <option value="pink">🌸 Pink (default)</option>
+            <option value="blue">💙 Blue</option>
+            <option value="dark">🌙 Dark</option>
+            <option value="custom">🎨 Custom</option>
+            </select>
+
+            <!-- Custom colour picker (hidden until "Custom" is selected) -->
+            <input type="color" id="custom-color" value="#ff69b4" style="display:none; margin-top:0.5rem;">
+
+            <button id="save-profile" class="btn-pink" style="margin-top:1.5rem;">💾 Save Profile</button>
+
+            <hr style="margin:1.5rem 0; border-color:var(--border-color);">
+
+            <!-- Logout & Chat buttons -->
+            <div class="inline-actions">
+            <a class="btn btn-primary" href="./chat.html">💬 Go to Chat</a>
+            <button id="logout" class="btn" style="background:#eee;color:#333;">Log out</button>
             </div>
+        </div>
         </div>
         <script type='module' src='./js/profile.js'></script>
     </body>

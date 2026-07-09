@@ -218,13 +218,12 @@ h1
   background-color: var(--pink-inner);
   border-radius: 20px;
   padding: 2rem;
-  width: 85vw;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  height: 70vh;
+  width: 95%;
   max-width: 1200px;
-  max-height: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   white-space: normal;
   overflow-wrap: break-word;
+  margin: 0 auto;
 }
 
 .profile-container
@@ -321,28 +320,25 @@ body:not(.login-page) form button[type="submit"]:hover
 }
 
 /* ========== 07) 🗺️ MAP ========== */
-.map-frame
+.mapPage
 {
-  border: 2px solid var(--wine-berry);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,.06);
-
-  /* match your global body padding: 2rem left + 2rem right */
-  width: min(1200px, calc(100vw - 4rem));
-  margin: 1rem;                 /* centers the whole box */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
 }
 
 #map
 {
   display: block;
-  width: min(1200px, calc(100vw - 4rem));  /* lines up with your body 2rem padding */
-  height: clamp(560px, 78svh, 900px);      /* bigger, responsive */
-  margin: 12px auto 2rem;                  /* centers it under the nav */
+  width: 100%;
+  max-width: 1200px;
+  height: clamp(560px, 78svh, 900px);
   border: 2px solid var(--wine-berry);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  box-shadow: 0 8px 2-px rgb(0, 0, 0, 0.06);
+  margin: 12px auto;
 }
 
 .leaflet-container 
@@ -350,6 +346,16 @@ body:not(.login-page) form button[type="submit"]:hover
   background: #cde7f5; 
 }
 
+.map-frame
+{
+  border: 2px solid var(--wine-berry);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  width: 95%;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
 /* ========== 08) 💬 CHAT ========== */
 .chat-wrapper 
 {
@@ -890,4 +896,70 @@ header
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+}
+
+/* ========== 🆕 PAGE-SPECIFIC CONTAINERS (add this AFTER video-wrapper) ========== */
+
+/* --- About Page --- */
+.aboutContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Timeline Page --- */
+.timelineContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Chat Page --- */
+.chatPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Submit Story Page --- */
+.storyContainer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Map Page --- */
+.mapPage {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Profile Page --- */
+.profileContainer1,
+.profile-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Style the card inside profile */
+.profile-page .card {
+  background: var(--bg-card, #ffffff);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.card {
+  background: var(--bg-card, #ffffff);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.5rem;
 }
